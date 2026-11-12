@@ -1,0 +1,35 @@
+https://www.youtube.com/watch?v=1341ei0Y8Rk&t=1212s
+
+folder root
+npm i -D tsx typescript
+npm i dotenv
+folder root/packages/shared
+npm i pg pino pino-http zod
+npm i -D @types/express @types/node @types/pg typescript -w shared
+npm run db:migrate -- sql/001_users.sql
+npm i bcryptjs jsonwebtoken -w auth-service
+npm i -D @types/ bcryptjs @types/jsonwebtoken -w auth-service
+
+folder root/apps/shared
+npm i express dotenv shared -w auth-service
+npm i -D @types/express @types/node tsx typescript -w auth-service
+npm i --save-dev @types/jsonwebtoken
+npm i kafkajs -w shared
+
+folder root/api-gateway
+npm i express dotenv cors helmet express-rate-limit http-proxy-middleware shared
+npm i -D @types/express @types/node @types/cors tsx typescript
+
+folder root/apps/task-service
+npm i express dotenv shared zod -w task-service
+npm i -D @types/express @types/node @types/cors tsx typescript -w task-service
+
+folder root/apps/media-service
+npm init -y
+npm i dotenv shared express multer @aws-sdk/client-s3 -w media-service
+npm i @types/express @types/node @types/multer tsx typescript -w media-service
+npm run db:migrate -- sql/003_attachments.sql
+
+folder root/apps/workspace-service
+npm i dotenv express shared -w workflow-service
+npm i -D @types/express @types/node tsx typescript
